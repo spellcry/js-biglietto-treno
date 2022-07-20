@@ -24,13 +24,16 @@ if (! isNaN( km ) ) {
         // Modifico il DOM e visualizzo il prezzo
         prezzoDomElement.innerHTML = `${prezzo}€`;
     } else {
+        // Errore: età non valida
         alert('Il valore dell\'età inserito non è valido');
         error = true;
     }
 } else {
+    // Errore: km non validi
     alert('Il valore inserito per i km non è valido');
     error = true;
 }
+// SE c'è stato un errore lo scrivo nei vari campi
 if ( error === true ) {
     kmDomElement.innerHTML = "Errore";
     etaDomElement.innerHTML = "Errore";
