@@ -6,9 +6,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biglietto del treno</title>
+    <!-- My CSS -->
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
+    <section class="biglietto-recap">
+        <div class="row">
+            <div class="col">
+                <h1 class="biglietto-recap__title">Calcolo il prezzo del biglietto</h1>
+                <table class="info-table">
+                    <tr>
+                        <th>Chilometri da percorrere (0.21€ al km)</th>
+                        <td id="km"></td>
+                    </tr>
+                    <tr>
+                        <th>Età del passeggero</th>
+                        <td id="eta"></td>
+                    </tr>
+                    <tr>
+                        <th>Prezzo del biglietto</th>
+                        <td id="prezzo"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
 
     <script type="text/javascript" src="./js/scripts.js"></script>
 </body>
