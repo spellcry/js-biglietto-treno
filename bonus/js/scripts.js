@@ -3,26 +3,37 @@ const kmDomElement = document.getElementById('km');
 const etaDomElement = document.getElementById('eta');
 const prezzoDomElement = document.getElementById('prezzo');
 
-let error = false;
+// Dichiarazione variabili
+let km = 0,
+    eta = 0,
+    prezzo = 0,
+    prezzoFinale = 0,
+    sconto = 0,
+    error = false;
+
+const PREZZO_AL_CHILOMETRO = 0.21,
+      SCONTO_PERCENTUALE_MINORENNI = 0.2,
+      SCONTO_PERCENTUALE_ANZIANI = 0.4;
 
 // Salvo i dati inseriti dall'utente in due variabili
-let km = parseInt(prompt('Inserisci il numero dei km da percorrere'));
+km = parseInt(prompt('Inserisci il numero dei km da percorrere'));
 if (! isNaN( km ) ) {
-    let eta = parseInt(prompt('Inserisci la tua età'));
+    eta = parseInt(prompt('Inserisci la tua età'));
     if( !isNaN( eta ) ) {
         kmDomElement.innerHTML = `${km}km`;
         etaDomElement.innerHTML = `${eta} anni`;
         
         // Calcolo il prezzo del biglietto
-        let prezzo = 0.21 * km;
+        prezzo = PREZZO_AL_CHILOMETRO * km;
         if(eta < 18) {
-            prezzo = (prezzo * 0.8).toFixed(2);
+            sconto = prezzo * SCONTO_PERCENTUALE_MINORENNI;
         } else if(eta > 65) {
-            prezzo = (prezzo * 0.6).toFixed(2);
+            sconto = prezzo * SCONTO_PERCENTUALE_ANZIANI;
         }
-        
+        prezzoFinale = (prezzo - sconto).toFixed(2);
+
         // Modifico il DOM e visualizzo il prezzo
-        prezzoDomElement.innerHTML = `${prezzo}€`;
+        prezzoDomElement.innerHTML = `${prezzoFinale}€`;
     } else {
         // Errore: età non valida
         alert('Il valore dell\'età inserito non è valido');
